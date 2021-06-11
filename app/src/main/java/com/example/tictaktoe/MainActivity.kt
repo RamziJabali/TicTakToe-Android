@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         var gridView: GridView = findViewById(R.id.gridView)
         gridView.setAdapter(TextViewAdapter(this))
+        gridView.numColumns = 3
 
     }
 }

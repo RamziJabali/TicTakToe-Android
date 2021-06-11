@@ -18,7 +18,7 @@ class TextViewAdapter(var c: Context) : BaseAdapter() {
 
         if (convertView == null) {
             textView = TextView(this.context)
-            textView.layoutParams = AbsListView.LayoutParams(85, 85)
+            textView.layoutParams = AbsListView.LayoutParams(90, 90)
             textView.setPadding(8, 8, 8, 8)
         } else {
             textView = TextView(context)
