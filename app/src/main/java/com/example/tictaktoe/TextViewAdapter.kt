@@ -1,7 +1,7 @@
 package com.example.tictaktoe
 
 import android.content.Context
-
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
@@ -9,12 +9,13 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 
 
-class TextViewAdapter(var c: Context) : BaseAdapter() {
+class TextViewAdapter(var c: Context, var model: Model) : BaseAdapter() {
 
     private var context = c
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var textView: TextView
+        //val inflater: LayoutInflater = c.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         if (convertView == null) {
             textView = TextView(this.context)
@@ -23,7 +24,7 @@ class TextViewAdapter(var c: Context) : BaseAdapter() {
         } else {
             textView = TextView(context)
         }
-        textView.setText(arrayOfSymbols[position])
+        //textView.setText(model.arrayOfSymbols[position])
         return textView
 
     }
@@ -37,8 +38,6 @@ class TextViewAdapter(var c: Context) : BaseAdapter() {
     }
 
     override fun getCount(): Int {
-        return arrayOfSymbols.size
+        return 0
     }
-
-    var arrayOfSymbols = arrayOf("X", "O", "X", "X", "X", "O", "O", "X", "O")
 }
