@@ -15,7 +15,8 @@ class ViewModel(private val view: MainActivity) : ViewListener {
         viewState = ViewState()
         model = Model()
         viewState.boardSize = Model.BOARD_SIZE
-        viewState.board = getBoardGameAsString()
+        viewState.board = getBoardGameAsTwoDimensionalString()
+        viewState.oneDimensionalBoard = getBoardGameAsOneDimensionalString()
         showWelcomeMessage()
         invalidateView()
     }
@@ -92,13 +93,41 @@ class ViewModel(private val view: MainActivity) : ViewListener {
         return false
     }
 
-    private fun getBoardGameAsString(): Array<Array<String>> {
-        return emptyArray()
+    private fun getBoardGameAsTwoDimensionalString(): Array<Array<String>> {
+        var gameBoardString = arrayOf(
+                arrayOf(NA.display, NA.display, NA.display),
+                arrayOf(NA.display, NA.display, NA.display),
+                arrayOf(NA.display, NA.display, NA.display)
+        )
+
+        for (row in model.gameBoard.indices) {
+            for (column in model.gameBoard.indices) {
+                gameBoardString[row][column] = model.gameBoard[row][column].display
+            }
+        }
+        return gameBoardString
+    }
+
+    private fun getBoardGameAsOneDimensionalString(): Array<String> {
+        var gameBoardString = arrayOf(
+                NA.display, NA.display, NA.display,
+                NA.display, NA.display, NA.display,
+                NA.display, NA.display, NA.display
+        )
+        var index = 0
+
+        for (row in model.gameBoard) {
+            for (column in row) {
+                gameBoardString[index] = column.display
+                index++
+            }
+        }
+        return gameBoardString
     }
 
     private fun showWelcomeMessage() {
         viewState.gameAnnouncement =
-                Model.WELCOME_TO_TICK + "\n" + Model.YOU_ARE_PLAYER + "${model.humanPlayerPick} \n"
+                Model.WELCOME_TO_TICK + "\n" + Model.YOU_ARE_PLAYER + "$X \n"
     }
 
     private fun showGameOver() {

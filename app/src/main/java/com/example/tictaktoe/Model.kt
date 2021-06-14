@@ -2,7 +2,6 @@ package com.example.tictaktoe
 
 
 import com.example.tictaktoe.Player.*
-import java.lang.Math.random
 
 class Model {
     companion object {
@@ -18,17 +17,12 @@ class Model {
         const val BOARD_SIZE = 3
     }
 
-    var userRowEntry: Int = -1
-    var userColumnEntry: Int = -1
     var currentPlayer: Player = X
-    var aiPlayerPick: Player = NA
-    var humanPlayerPick: Player = NA
     var gameBoard = arrayOf(
             arrayOf(NA, NA, NA),
             arrayOf(NA, NA, NA),
             arrayOf(NA, NA, NA)
     )
-
 
 
 }
