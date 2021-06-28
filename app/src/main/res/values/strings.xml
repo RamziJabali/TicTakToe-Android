@@ -2,4 +2,13 @@
     <string name="app_name">TicTakToe</string>
     <string name="X">X</string>
     <string name="O">O</string>
+    <string name="NA"> </string>
+    <string name="itemText"></string>
+    <string name="WELCOME_TO_TICK">Welcome to Tic Tac Toe</string>
+    <string name="YOU_ARE_PLAYER">You are player</string>
+    <string name="YOU_WIN">YOU WIN:</string>
+    <string name="PLAYER">PLAYER</string>
+    <string name="PLAYER_TURN">PLAYER TURN:</string>
+    <string name="ITS_A_DRAW">IT\'S A DRAW</string>
+    <string name="reset">Reset</string>
 </resources>
